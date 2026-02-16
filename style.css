@@ -1,12 +1,12 @@
 body {
     position: relative;
-    background-image: url(Img/fondo2.png);
+    background-image: url(img/fondo2.png);
     background-repeat: repeat;
     background-size: 300px;
 }
 @font-face{
     font-family: "bellasharkir";
-    src: url("Fuentes/bella\ shakir.ttf")
+    src: url("font/bella\ shakir.ttf")
 }
 
 #titulo {
