@@ -1,0 +1,54 @@
+body {
+    position: relative;
+    background-image: url(Img/fondo2.png);
+    background-repeat: repeat;
+    background-size: 300px;
+}
+@font-face{
+    font-family: "bellasharkir";
+    src: url("Fuentes/bella\ shakir.ttf")
+}
+
+#titulo {
+    display: grid;
+    place-items: center;
+}
+
+#titulo {
+    font-size: 100px;
+    color:rgb(185, 109, 255);
+    text-align: center;
+    text-shadow: 2px 1px 4px rgba(0, 0, 0, 0.753);
+    font-family: "bellasharkir";
+}
+
+.gallery {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+.post, .postingles{
+    display: flex;
+    align-items:flex-start;
+    gap: 20px;
+    padding-left: 50px;
+}
+
+#imagenlibro, #imagenlibroingles{
+    width: 300px;
+    padding: 20px;
+    outline: 30px;
+    outline-color: lightpink;
+}
+
+#descripcionlibro, #descripcionlibroingles {
+    max-width: 500px;
+    text-align: justify;
+    padding-top: 25px;
+}
+
+.oculto{
+    display: none;
+}
+
+
