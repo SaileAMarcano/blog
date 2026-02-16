@@ -24,31 +24,42 @@ body {
 
 .gallery {
     display: flex;
-    gap: 30px;
+    justify-content: center;
     align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    margin-top: 40px;
 }
-.post, .postingles{
+
+.post{
     display: flex;
-    align-items:flex-start;
-    gap: 20px;
-    padding-left: 50px;
+    align-items:center;
+    gap: 15px;
+    padding: 10px;
+    border-radius: 12px;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    height: auto;
 }
 
-#imagenlibro, #imagenlibroingles{
-    width: 300px;
-    padding: 20px;
-    outline: 30px;
-    outline-color: lightpink;
+#imagenlibro{
+    width: 220px;
 }
 
-#descripcionlibro, #descripcionlibroingles {
-    max-width: 500px;
-    text-align: justify;
-    padding-top: 25px;
+#descripcionlibro{
+    max-width: 0px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.35s ease;
 }
 
-.oculto{
-    display: none;
+.post.activa{
+    background: lightblue;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    transform: scale(1.05);
 }
 
-
+.post.activa #descripcionlibro{
+    max-width: 300px;
+    opacity: 1;
+}

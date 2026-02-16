@@ -1,21 +1,28 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
-    const imagen = document.getElementById("imagenlibro");
-    const texto = document.getElementById("descripcionlibro");
+    document.querySelectorAll(".post").forEach(post => {
 
-    imagen.addEventListener("click", function(){
-        texto.classList.toggle("oculto");
-    });
+        const imagen = post.querySelector(".imagenlibro");
+        const texto = post.querySelector(".descripcionlibro");
 
-});
+        if (imagen && texto) {
+            imagen.addEventListener("click", function (e) {
+                e.stopPropagation(); // evita que se active el click del post
+                texto.classList.toggle("oculto");
+            });
+        }
 
-document.addEventListener("DOMContentLoaded", function(){
+        post.addEventListener("click", function () {
 
-    const imagen = document.getElementById("imagenlibroingles");
-    const texto = document.getElementById("descripcionlibroingles");
+            document.querySelectorAll(".post").forEach(p => {
+                if (p !== post) {
+                    p.classList.remove("activa");
+                }
+            });
 
-    imagen.addEventListener("click", function(){
-        texto.classList.toggle("oculto");
+            post.classList.toggle("activa");
+        });
+
     });
 
 });
