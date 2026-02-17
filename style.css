@@ -2,7 +2,7 @@ body {
     position: relative;
     background-image: url(img/fondo2.png);
     background-repeat: repeat;
-    background-size: 300px;
+    background-size: 200px;
 }
 @font-face{
     font-family: "bellasharkir";
@@ -26,6 +26,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex-wrap: wrap;
     gap: 40px;
     width: 100%;
     margin-top: 40px;
@@ -40,24 +41,28 @@ body {
     border-radius: 12px;
     transition: all 0.35s ease;
     cursor: pointer;
+    width: auto;
+    max-width: 600px;
 }
 
 .contenido-superior{
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
-    gap: 15px;
+    gap: 20px;
 }
 
-#imagenlibro{
+.imagenlibro{
     width: 220px;
 }
 
-#descripcionlibro{
-    max-width: 0px;
+.descripcionlibro, 
+.zona-comentarios {
+    max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.35s ease;
-    line-height: 1.5;
+    transition: all 0.4s ease-in-out;
+    pointer-events: none; /* Evita clics accidentales cuando está oculto */
 }
 
 .post.activa{
@@ -66,24 +71,42 @@ body {
     transform: scale(1.05);
 }
 
-.post.activa #descripcionlibro{
-    max-width: 300px;
+.post.activa .descripcionlibro,
+.post.activa .zona-comentarios {
+    max-height: 1000px; /* Un valor alto para que quepa el texto */
     opacity: 1;
+    margin-top: 15px;
+    pointer-events: auto; /* Reactiva los clics para el input y botón */
 }
 
+/* Ajuste para que la descripción no empuje feo */
+.descripcionlibro {
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+ 
 .zona-comentarios{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+    width: 100%;
+    margin-top: auto;
 }
 
 .zona-comentarios input{
-    width: 200px;
+    width: 300px;
     padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
 }
 
 .zona-comentarios button{
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.post.activa .zona-comentarios {
+    display: flex; 
 }

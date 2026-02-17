@@ -1,30 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const posts = document.querySelectorAll(".post");
 
-    document.querySelectorAll(".post").forEach(post => {
-
-        const imagen = post.querySelector(".imagenlibro");
-        const texto = post.querySelector(".descripcionlibro");
-
-        if (imagen && texto) {
-            imagen.addEventListener("click", function (e) {
-                e.stopPropagation(); // evita que se active el click del post
-                texto.classList.toggle("oculto");
-            });
-        }
-
+    posts.forEach(post => {
         post.addEventListener("click", function () {
-
-            document.querySelectorAll(".post").forEach(p => {
+            // 1. Cerramos los otros libros abiertos
+            posts.forEach(p => {
                 if (p !== post) {
                     p.classList.remove("activa");
                 }
             });
 
+            // 2. Togleamos el libro actual
             post.classList.toggle("activa");
         });
-
     });
-
 });
 
 const supabaseURL ="https://ibchhjwgidtbsjsyitvj.supabase.co";
@@ -41,15 +30,4 @@ async function guardarComentario(libro, texto) {
         console.error(error);
     }
     
-}
-
-async function cargarComentarios(libro){
-
-    const { data, error } = await supabaseClient
-        .from("comentarios")
-        .select("*")
-        .eq("libro", libro)
-        .order("fecha", { ascending: false });
-
-    return data;
 }
