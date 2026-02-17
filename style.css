@@ -24,32 +24,34 @@ body {
 
 .gallery {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: center; /* Centra el grupo de libros */
+    align-items: flex-start; /* Evita que los libros se estiren raro verticalmente */
     flex-wrap: wrap;
-    gap: 40px;
-    width: 100%;
-    margin-top: 40px;
+    gap: 30px; /* Espacio uniforme entre libros */
+    max-width: 1200px; /* Limita el ancho total para que no se desparramen en pantallas gigantes */
+    margin: 40px auto;
 }
 
-.post{
+.post {
+    width: 240px; 
     display: flex;
-    flex-direction: column;
-    align-items:center;
+    flex-direction: column; /* Los comentarios seguirán estando abajo */
+    align-items: center;
     gap: 10px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 12px;
-    transition: all 0.35s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: pointer;
-    width: auto;
-    max-width: 600px;
+    background: rgba(255, 255, 255, 0.6);
+    flex-shrink: 0;
 }
 
 .contenido-superior{
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
+    align-items: center; /* Centra la imagen verticalmente respecto al texto */
+    justify-content: center;
+    width: 100%;
 }
 
 .imagenlibro{
@@ -68,7 +70,9 @@ body {
 .post.activa{
     background: lightblue;
     box-shadow: 0 15px 25px rgba(0,0,0,0.25);
-    transform: scale(1.05);
+    transform: scale(1.02);
+    width: 550px;
+    z-index: 10;
 }
 
 .post.activa .descripcionlibro,
@@ -81,17 +85,20 @@ body {
 
 /* Ajuste para que la descripción no empuje feo */
 .descripcionlibro {
-    line-height: 1.6;
-    font-size: 0.95em;
+    flex: 1;
+    padding: 0 15px;
+    text-align: left; /* El texto alineado a la izquierda se ve más limpio al lado de una imagen */
+    font-size: 0.9rem;
 }
  
 .zona-comentarios{
-    display: none;
+    width: 100%;
+    display: none; /* Se activa con .post.activa */
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    width: 100%;
-    margin-top: auto;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1); /* Opcional: una línea divisoria */
+    padding-top: 15px;
 }
 
 .zona-comentarios input{
@@ -109,4 +116,8 @@ body {
 
 .post.activa .zona-comentarios {
     display: flex; 
+}
+
+.post:not(.activa) {
+    flex-grow: 0;
 }
