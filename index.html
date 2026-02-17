@@ -6,12 +6,14 @@
     
 </head>
 <body>
+    <script src="https://ibchhjwgidtbsjsyitvj.supabase.co"></script>
     <script src="app.js"></script>
     <header>
         <h1 id="titulo">Suki’s Literary Corner</h1>
         </header>
     <section class="gallery">
         <article class="post">
+            <div class ="contenido-superior">
             <img id="imagenlibro" src="img/Espiritu Salvaje.jpg" width="200px" />
             <p id="descripcionlibro" class="oculto"> Espíritu Salvaje es una novela romántica escrita por Adriana Criado, ambientada en el mundo de las carreras de caballos en Maplewood Hollow.<br>
 
@@ -21,15 +23,38 @@ Ambos compiten en el circuito de carreras de caballos, pero cuando surge la opor
 
 Aunque formar equipo parece la opción más lógica para ganar, al pasar más tiempo juntos reaparecen sentimientos y recuerdos antiguos que ninguno quiere enfrentar. A medida que entrenan y compiten, Gia y Seth se ven obligados no solo a lidiar con sus emociones, sino también con los obstáculos internos que los han separado. 
 
-La novela explora temas como el perdón, la superación personal, el valor de enfrentar el pasado y la posibilidad de que el amor nazca incluso después del odio.</p>
+La novela explora temas como el perdón, la superación personal, el valor de enfrentar el pasado y la posibilidad de que el amor nazca incluso después del odio.</p> </div>
+                <div class="zona-comentarios">
+                    <input
+                        type="text"
+                        id="input-espiritusalvaje"
+                        placeholder="Cuentame tu opinion♡"
+                        >
+                    <button onclick="enviarComentario('espiritusalvaje')">
+                        Comentar
+                    </button>
+                    <div id="comentarios-espiritusalvaje"></div>
+                </div>
         </article>
         <article class="post">
+            <div class ="contenido-superior">
             <img id="imagenlibro" src="img/blood of hercules.webp" width="200px" />
             <p id="descripcionlibro" class="oculto"> Blood of Hercules by Jasmine Mas is a dark fantasy novel that reimagines Greek mythology through a fierce and modern lens. The story follows a young woman whose life is turned upside down when she discovers she is bound by blood to the legacy of Hercules. Thrust into a brutal world of gods, monsters, and ancient power struggles, she must confront her own strength, rage, and destiny. <br>
 
 As she trains to survive among warriors and demi-gods, the line between hero and monster begins to blur. Violence, loyalty, betrayal, and desire collide, forcing her to question what it truly means to inherit a legendary name. With sharp dialogue, intense action, and morally gray characters, the novel explores identity, power, and the cost of becoming unstoppable.
 
-Blood of Hercules is a gripping blend of mythology, dark romance, and survival, perfect for readers who enjoy fierce heroines, high-stakes trials, and mythological worlds rewritten with blood and fire.</p>
+Blood of Hercules is a gripping blend of mythology, dark romance, and survival, perfect for readers who enjoy fierce heroines, high-stakes trials, and mythological worlds rewritten with blood and fire.</p></div>
+                <div class="zona-comentarios">
+                    <input
+                        type="text"
+                        id="input-hercules"
+                        placeholder="Tell me your opinion♡"
+                        >
+                    <button onclick="enviarComentario('hercules')">
+                        Comment
+                    </button>
+                    <div id="comentarios-hercules"></div>
+                </div>
         </article>
     </section>
     <footer>

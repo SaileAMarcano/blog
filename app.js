@@ -26,3 +26,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+const supabaseURL ="https://ibchhjwgidtbsjsyitvj.supabase.co";
+const supabaseKey ="sb_publishable_kKY5zFT9wfHOU_6XRZxazQ_AnjcLuCe";
+const supabaseClient = supabaseKey.createClient(supabaseURL, supabaseKey);
+
+async function guardarComentario(libro, texto) {
+    const { data, error } = await supabaseClient
+    .from("comentarios")
+    .insert([
+        {libro: libro, comentario: texto}
+    ]);
+    if(error){
+        console.error(error);
+    }
+    
+}
+
+async function cargarComentarios(libro){
+
+    const { data, error } = await supabaseClient
+        .from("comentarios")
+        .select("*")
+        .eq("libro", libro)
+        .order("fecha", { ascending: false });
+
+    return data;
+}

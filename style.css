@@ -33,13 +33,13 @@ body {
 
 .post{
     display: flex;
+    flex-direction: column;
     align-items:flex-start;
     gap: 15px;
     padding: 10px;
     border-radius: 12px;
     transition: all 0.35s ease;
     cursor: pointer;
-    height: auto;
 }
 
 #imagenlibro{
@@ -54,6 +54,13 @@ body {
     line-height: 1.5;
 }
 
+.contenido-superior{
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
 .post.activa{
     background: lightblue;
     box-shadow: 0 15px 25px rgba(0,0,0,0.25);
@@ -63,4 +70,21 @@ body {
 .post.activa #descripcionlibro{
     max-width: 300px;
     opacity: 1;
+}
+
+.zona-comentarios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:8px;
+}
+
+.zona-comentarios input{
+    width: 200px;
+    padding: 5px;
+}
+
+.zona-comentarios button{
+    padding: 6px 12px;
+    cursor: pointer;
 }
