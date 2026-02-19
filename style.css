@@ -28,7 +28,7 @@ body {
     align-items: flex-start; /* Evita que los libros se estiren raro verticalmente */
     flex-wrap: wrap;
     gap: 30px; /* Espacio uniforme entre libros */
-    max-width: 1200px; /* Limita el ancho total para que no se desparramen en pantallas gigantes */
+    max-width: 1600px; /* Limita el ancho total para que no se desparramen en pantallas gigantes */
     margin: 40px auto;
 }
 
@@ -58,6 +58,7 @@ body {
 .imagenlibro{
     width: 240px;
     display: block;
+    pointer-events: auto;
 }
 
 .descripcionlibro, 
@@ -109,6 +110,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: white;
+    cursor: text;
 }
 
 .zona-comentarios button{
@@ -122,4 +124,25 @@ body {
 
 .post:not(.activa) {
     flex-grow: 0;
+}
+
+.comentario-item {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
+    margin-top: 5px;
+    border-radius: 8px;
+    width: 100%;
+    border-left: 4px solid #c64bff; /* Un detalle rosado para combinar */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.comentario-item p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.comentario-item small {
+    color: #888;
+    font-size: 0.7em;
 }
