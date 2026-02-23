@@ -69,6 +69,28 @@ header{
     overflow: hidden; /* Crucial para que el zoom de la imagen no se salga */
     transition: all 0.25s ease;
 }
+.etiqueta {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10; /* Asegura que esté por encima de la imagen */
+    
+    /* Diseño visual */
+    background: linear-gradient(120deg, #e6dcff, #dff4ff, #e4ffe9, #ffe4ee, #ffe9cc, #fff8cc);
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+    /* Efecto de aparición */
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+.post:hover .etiqueta {
+    opacity: 1;
+}
 
 /* Efecto al pasar el mouse por encima del post */
 .post:hover {
