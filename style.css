@@ -26,14 +26,14 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, 250px);
     justify-content: center; /* Centra el grupo de libros */
-    gap: 40px; /* Espacio uniforme entre libros */
-    max-width: 1600px; /* Limita el ancho total para que no se desparramen en pantallas gigantes */
+    gap: 100px; /* Espacio uniforme entre libros */
+    max-width: 2000px; /* Limita el ancho total para que no se desparramen en pantallas gigantes */
     margin: 10px auto;
 }
 
 .post {
     width: 550px; 
-    transform-origin: center top;
+    transform-origin: center center;
     display: flex;
     flex-direction: column; /* Los comentarios seguirán estando abajo */
     align-items: center;
@@ -69,11 +69,16 @@ body {
 }
 
 .post.activa{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    width: min(550px, 90vw);
+    max-height: 85vh;
+    overflow-y: auto;
     background: rgb(197, 235, 248);
     box-shadow: 0 15px 25px rgba(0,0,0,0.25);
-    transform: scale(1.08);
-    width: 550px;
-    z-index: 10;
+    z-index: 999;
 }
 
 .post.activa .descripcionlibro,
