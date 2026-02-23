@@ -74,8 +74,6 @@ header{
     top: 10px;
     left: 10px;
     z-index: 10; /* Asegura que esté por encima de la imagen */
-    
-    /* Diseño visual */
     background: linear-gradient(120deg, #e6dcff, #dff4ff, #e4ffe9, #ffe4ee, #ffe9cc, #fff8cc);
     color: #333;
     padding: 4px 10px;
@@ -83,14 +81,8 @@ header{
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
-    
-    /* Efecto de aparición */
-    opacity: 0; 
-    transition: opacity 0.3s ease;
 }
-.post:hover .etiqueta {
-    opacity: 1;
-}
+
 
 /* Efecto al pasar el mouse por encima del post */
 .post:hover {
@@ -206,6 +198,7 @@ header{
 .zona-comentarios {
     padding-top: 12px;
     display: flex;
+    flex-wrap: wrap; /* PERMITE QUE LA LISTA BAJE */
     gap: 10px;
     align-items: center;
     background: white;
@@ -241,14 +234,40 @@ header{
     transform: scale(1.05);
 }
 
-.zona-comentarios div {
-    width: 100%;
-    margin-top: 8px;
-    font-size: 13px;
+/* Cambia el ".zona-comentarios div" por esto: */
+.contenedor-comentarios-list {
+    width: 100%; /* Esto obliga a la lista a ocupar todo el ancho y bajar */
+    max-height: 200px; 
+    overflow-y: auto; 
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
+
+.comentario-item {
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 13px;
+    border-left: 3px solid #e6dcff; /* El lila de tu paleta */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.comentario-item small {
+    color: #bbb;
+    font-size: 10px;
+}
+
+.contenedor-comentarios-list::-webkit-scrollbar {
+    width: 5px;
+}
+.contenedor-comentarios-list::-webkit-scrollbar-thumb {
+    background: #e6dcff; /* El lila de tu tema */
+    border-radius: 10px;
+}
+
 
 /* ============================= */
 /* FOOTER */
