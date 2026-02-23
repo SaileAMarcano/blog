@@ -41,7 +41,7 @@ body {
     gap: 30px;
     padding: 40px;
     border-radius: 10px;
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), background 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     cursor: pointer;
 }
 
@@ -65,8 +65,7 @@ body {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: all 0.4s ease;
-    pointer-events: none; /* Evita clics accidentales cuando está oculto */
+    transition: opacity 0.15s ease, max-height 0.35s ease;
 }
 
 .post.activa{
@@ -82,6 +81,19 @@ body {
     z-index: 999;
 }
 
+.post.activa {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
 .post.activa .imagenlibro{
     width: clamp(280px, 45vw, 380px);
     transform: scale(1.05);
@@ -92,8 +104,12 @@ body {
 .post.activa .zona-comentarios {
     max-height: 1500px; /* Un valor alto para que quepa el texto */
     opacity: 1;
-    margin-top: 10px;
-    pointer-events: auto; /* Reactiva los clics para el input y botón */
+    transition:opacity 0.1s ease, max-height 0.5s ease;
+}
+
+.post:not(.activa) .descripcionlibro,
+.post:not(.activa) .zona-comentarios {
+    transition: opacity 0.1s ease, max-height 0.25s ease;
 }
 
 /* Ajuste para que la descripción no empuje feo */

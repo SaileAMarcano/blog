@@ -2,26 +2,48 @@ document.addEventListener("DOMContentLoaded", function () {
     const posts = document.querySelectorAll(".post");
 
     posts.forEach(post => {
-        // Evento para abrir y cerrar el libro
+
         post.addEventListener("click", function (event) {
-            
-            // SI EL CLIC ES DENTRO DE LOS COMENTARIOS, NO HACEMOS NADA
-            // Esto evita que el libro se cierre al intentar escribir
+
             if (event.target.closest('.zona-comentarios')) {
                 return;
             }
 
-            // Lógica para cerrar los demás y abrir el actual
             const yaEstaActivo = post.classList.contains("activa");
 
+            // cerrar todos
             posts.forEach(p => p.classList.remove("activa"));
 
+            // SI SE VA A ABRIR → aplicar animación FLIP
             if (!yaEstaActivo) {
+
+                // -------- FIRST --------
+                const first = post.getBoundingClientRect();
+
+                // activar estado final
                 post.classList.add("activa");
+
+                // -------- LAST --------
+                const last = post.getBoundingClientRect();
+
+                // -------- INVERT --------
+                const deltaX = first.left - last.left;
+                const deltaY = first.top - last.top;
+                const scaleX = first.width / last.width;
+                const scaleY = first.height / last.height;
+
+                post.style.transform = `
+                    translate(${deltaX}px, ${deltaY}px)
+                    scale(${scaleX}, ${scaleY})
+                `;
+
+                post.offsetWidth; // reflow
+
+                // -------- PLAY --------
+                post.style.transform = "";
             }
         });
 
-        // Aseguramos que la zona de comentarios detenga la propagación
         const zona = post.querySelector(".zona-comentarios");
         if (zona) {
             zona.addEventListener("click", function (e) {
@@ -30,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
 // 1. Inicialización de Supabase
 const supabaseURL = "https://ibchhjwgidtbsjsyitvj.supabase.co";
 const supabaseKey = "sb_publishable_kKY5zFT9wfHOU_6XRZxazQ_AnjcLuCe";
