@@ -254,12 +254,50 @@ header{
 /* FOOTER */
 /* ============================= */
 footer {
+    padding: 60px 20px;
     text-align: center;
-    padding: 30px 10px;
-    color: #444;
-    font-size: 14px;
+    background: linear-gradient(120deg, #e6dcff, #dff4ff, #e4ffe9, #ffe4ee, #ffe9cc, #fff8cc);
+    backdrop-filter: blur(5px);
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.05);
 }
 
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-icons a {
+    text-decoration: none;
+    font-size: 24px; /* Tamaño de los iconos */
+    color: #a18cd1; /* Color base lila */
+    transition: all 0.3s ease;
+}
+
+/* Efecto Hover: Degradado y pequeño salto */
+.footer-icons a:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(120deg, #a18cd1, #fbc2eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 8px rgba(161, 140, 209, 0.3));
+}
+
+.footer-texto {
+    font-family: 'Bebas Neue', serif; /* Tu fuente personalizada */
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+footer span {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 /* ============================= */
 /* RESPONSIVE (CELULARES)        */
 /* ============================= */
