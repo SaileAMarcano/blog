@@ -39,3 +39,67 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// Cambiamos el nombre para que coincida exactamente con tu HTML
+function enviarComentario(postId) {
+    // 1. Extraemos el ID limpio (ej: de 'post-hushhush' saca 'hushhush')
+    const idLimpio = postId.split('-')[1];
+    
+    // 2. Buscamos los elementos en el HTML
+    const input = document.getElementById(`input-${idLimpio}`);
+    const lista = document.getElementById(`lista-${idLimpio}`);
+
+    // Seguridad: Si no encuentra los elementos, nos avisa en la consola en vez de romperse
+    if (!input || !lista) {
+        console.error("Error: No se encontró el input o la lista para: " + idLimpio);
+        return;
+    }
+
+    const texto = input.value.trim();
+
+    if (texto === "") {
+        alert("¡Escribe algo antes de comentar! ✨");
+        return;
+    }
+
+    const nuevoComentario = {
+        texto: texto,
+        fecha: new Date().toLocaleDateString()
+    };
+
+    // Guardar y mostrar
+    guardarComentario(postId, nuevoComentario);
+    renderizarComentario(lista, nuevoComentario);
+
+    // Limpiar el campo
+    input.value = "";
+}
+
+function renderizarComentario(contenedor, info) {
+    const div = document.createElement('div');
+    div.className = 'comentario-item';
+    div.innerHTML = `<strong>Usuario:</strong> ${info.texto} <br> <small>${info.fecha}</small>`;
+    contenedor.appendChild(div);
+}
+
+function guardarComentario(postId, comentario) {
+    let comentariosPrevios = JSON.parse(localStorage.getItem(postId)) || [];
+    comentariosPrevios.push(comentario);
+    localStorage.setItem(postId, JSON.stringify(comentariosPrevios));
+}
+
+// Cargar comentarios al iniciar
+window.addEventListener('DOMContentLoaded', () => {
+    const todosLosPosts = document.querySelectorAll('.post');
+    todosLosPosts.forEach(post => {
+        const postId = post.id;
+        if (postId && postId.includes('-')) {
+            const idLimpio = postId.split('-')[1];
+            const contenedor = document.getElementById(`lista-${idLimpio}`);
+            if (contenedor) {
+                const guardados = JSON.parse(localStorage.getItem(postId)) || [];
+                guardados.forEach(com => renderizarComentario(contenedor, com));
+            }
+        }
+    });
+});

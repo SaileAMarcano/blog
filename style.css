@@ -268,6 +268,74 @@ header{
     border-radius: 10px;
 }
 
+.interaccion-post {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+}
+
+.btn-love {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+    transition: transform 0.2s ease, color 0.2s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Cuando el corazón está activo (Like) */
+.btn-love.active {
+    color: #ff3040; /* Rojo Instagram */
+    transform: scale(1.2);
+}
+
+.btn-love:active {
+    transform: scale(0.9);
+}
+
+.contador-likes {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.btn-dislike {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px; /* Un poco más pequeño para equilibrio visual */
+    color: #ccc; /* Gris por defecto */
+    transition: all 0.2s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Cuando el corazón roto está activo */
+.btn-dislike.active {
+    color: #4b5563; /* Un gris oscuro o azul medianoche */
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.btn-dislike:hover {
+    color: #9ca3af;
+}
+
+.interaccion-post i {
+    display: inline-block !important;
+    min-width: 20px;
+    min-height: 20px;
+    font-style: normal;
+}
+
+.btn-love, .btn-dislike {
+    min-width: 40px; /* Asegura un tamaño mínimo para el botón */
+    min-height: 40px;
+}
 
 /* ============================= */
 /* FOOTER */

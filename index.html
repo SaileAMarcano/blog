@@ -6,7 +6,7 @@
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
     
 </head>
 <body>
@@ -15,21 +15,18 @@
         <h1 id="titulo">Suki’s Literary Corner</h1>
         </header>
     <section class="gallery">
-<article class="post leyendo"> 
+<article class="post leyendo" id="post-metalslinger"> 
     <span class="etiqueta">Lectura Actual</span> 
-
     <div class="contenido-superior">
         <img class="imagenlibro" src="img/Metal Slinger.jpg" />
         <p class="descripcionlibro">PENDIENTE</p>
     </div>
-
     <div class="zona-comentarios">
-        <input type="text" id="input-metalslinger" placeholder="Cuentame tu opinion♡">
-        <button onclick="enviarComentario('metalslinger')">Comentar</button>
-        <div id="comentarios-metalslinger"></div>
+        <input type="text" id="input-metalslinger" placeholder="Cuéntame tu opinión♡">
+        <button onclick="enviarComentario('post-metalslinger')">Comentar</button>
+        <div id="lista-metalslinger" class="contenedor-comentarios-list"></div>
     </div>
 </article>
-        </article>
             <article class="post">
             <div class ="contenido-superior">
                 <img class="imagenlibro" src="img/Espiritu Salvaje.jpg" width="200px" />
